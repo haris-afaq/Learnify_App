@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:learnify_app/config/Components/loading.dart';
 import 'package:learnify_app/config/constants/colors.dart';
 import 'package:learnify_app/config/routes/route_names.dart';
-import 'package:learnify_app/views/login/login.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -37,8 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: 250,
                 image: AssetImage("assets/images/logo.png")),
             ),
-            CircularProgressIndicator(
-              color: AppColors.whiteColor,)
+            LoadingWidget(),
           ],
         )),
 

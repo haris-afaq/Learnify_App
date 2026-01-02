@@ -7,7 +7,10 @@ import 'package:learnify_app/config/constants/colors.dart';
 class LoadingWidget extends StatelessWidget {
 
   final double size;
-  const LoadingWidget({super.key, this.size=30});
+  final Color? loaderColor;
+  const LoadingWidget({super.key, this.size=30,
+  this.loaderColor = AppColors.whiteColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class LoadingWidget extends StatelessWidget {
       height: size,
       width: size,
       child: Platform.isAndroid? CircularProgressIndicator(
-        color: AppColors.greenColor): CupertinoActivityIndicator(
+        color:loaderColor?? AppColors.primaryColor): CupertinoActivityIndicator(
           color: AppColors.greenColor),
     );
   }
