@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:learnify_app/config/constants/colors.dart';
 
 class CustomSnackbar {
+  CustomSnackbar(String string);
+
   static void show(
     BuildContext context, {
     required String text,

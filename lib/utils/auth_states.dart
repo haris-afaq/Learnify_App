@@ -1,0 +1,1 @@
+enum AuthStates{initial, loading, error, success}

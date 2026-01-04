@@ -10,7 +10,7 @@ class MainButton extends StatelessWidget {
   super.key,
   required this.title,
   required this.onTap,
-  this.color= AppColors.greenColor,
+  this.color= AppColors.primaryColor,
   });
 
   @override

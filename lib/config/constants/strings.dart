@@ -6,6 +6,10 @@ class AppStrings{
   static const String alertDialogeSecondaryText = "No";
   static const String welcomeBackText = "Welcome Back";
   static const String youHaveBeenMissed = "You have been missed...!";
-  // All other Strings
-  
+  static const String forgotPassword = "Forgot password?";
+  static const String registerHere =  "Create Account";
+  static const String newAccount = "Don't have an account? ";
+  static const String alreadyHaveAnAccount = "Already have an account? ";
+  static const String newHere = "Create Your Account";
+  static const String youWillLoveIt = "You will love it...!";
 }

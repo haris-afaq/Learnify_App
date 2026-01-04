@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learnify_app/config/routes/route_names.dart';
-import 'package:learnify_app/views/login/login.dart';
+import 'package:learnify_app/views/auth_view/login/login.dart';
+import 'package:learnify_app/views/auth_view/signUp/signup.dart';
 import 'package:learnify_app/views/splashScreen/splash_screen.dart';
 
 
@@ -12,6 +13,9 @@ static Route<dynamic> generateRoute(RouteSettings settings){
 
       case RouteNames.loginScreen:
       return MaterialPageRoute(builder: (context)=> LoginScreen());
+
+      case RouteNames.createAccount:
+      return MaterialPageRoute(builder: (_)=> SignupScreen());
     
     default: 
       return MaterialPageRoute(builder: (context){
