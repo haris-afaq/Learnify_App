@@ -1,4 +1,4 @@
-package com.harix_learnify_app
+package com.example.learnify_app
 
 import io.flutter.embedding.android.FlutterActivity
 

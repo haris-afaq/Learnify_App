@@ -12,4 +12,5 @@ class AppStrings{
   static const String alreadyHaveAnAccount = "Already have an account? ";
   static const String newHere = "Create Your Account";
   static const String youWillLoveIt = "You will love it...!";
+  static const String loginText = "Login";
 }
