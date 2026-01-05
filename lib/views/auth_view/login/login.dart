@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:learnify_app/bloc/login_bloc/login_bloc.dart';
 import 'package:learnify_app/config/Components/text_styles/body_text.dart';
 import 'package:learnify_app/config/Components/text_styles/heading1.dart';
 import 'package:learnify_app/config/Components/text_styles/heading3.dart';
@@ -29,58 +31,59 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider<LoginBloc>(create: (_)=> LoginBloc(),
+    child: Scaffold(
       backgroundColor: AppColors.appBackgroundColor,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(child: Heading1(title: AppStrings.welcomeBackText)),
+            3.height,
+           Heading3(title: AppStrings.youHaveBeenMissed,
+           titleColor: AppColors.grayColor,
+           ),
+           50.height,
+           Form(
+            key: formKey,
+            child: Column(
             children: [
-              Center(child: Heading1(title: AppStrings.welcomeBackText)),
-              3.height,
-             Heading3(title: AppStrings.youHaveBeenMissed,
-             titleColor: AppColors.grayColor,
-             ),
-             50.height,
-             Form(
-              key: formKey,
-              child: Column(
-              children: [
-               EmailInputField(emailFocusNode: emailFocusNode),
-             15.height,
-             PasswordInputField(passwordFocusNode: passwordFocusNode),
-             5.height,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children:  [
-                Heading3(title: AppStrings.forgotPassword,
+             EmailInputField(emailFocusNode: emailFocusNode),
+           15.height,
+           PasswordInputField(passwordFocusNode: passwordFocusNode),
+           5.height,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children:  [
+              Heading3(title: AppStrings.forgotPassword,
+              titleColor: AppColors.blueColor
+              )
+          ]),
+          35.height,
+        LoginButton(),
+       15.height,
+           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  [
+              Bodytext(text: AppStrings.newAccount),
+              InkWell(
+                onTap: (){
+                  Navigator.pushNamed(context, RouteNames.createAccount);
+                },
+                child: Heading3(title: AppStrings.registerHere,
                 titleColor: AppColors.blueColor
-                )
-            ]),
-            35.height,
-          LoginButton(),
-         15.height,
-             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children:  [
-                Bodytext(text: AppStrings.newAccount),
-                InkWell(
-                  onTap: (){
-                    Navigator.pushNamed(context, RouteNames.createAccount);
-                  },
-                  child: Heading3(title: AppStrings.registerHere,
-                  titleColor: AppColors.blueColor
-                  ),
-                )
-            ]),
-            
-              ],
-             ))
+                ),
+              )
+          ]),
+          
             ],
-          ),
-        )),
+           ))
+          ],
+        ),
+      ),
+    ),
     );
   }
 }

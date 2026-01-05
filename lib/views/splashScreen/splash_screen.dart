@@ -1,9 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:learnify_app/config/Components/loading.dart';
 import 'package:learnify_app/config/constants/colors.dart';
-import 'package:learnify_app/config/routes/route_names.dart';
+import 'package:learnify_app/services/splash_screen_services.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,14 +11,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
+SplashServices _splashServices = SplashServices();
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds: 5), (){
-      Navigator.pushNamed(context, RouteNames.loginScreen);
-    });
+    _splashServices = SplashServices();
+    _splashServices.isLogin(context);
+    // Timer(Duration(seconds: 5), (){
+    //   Navigator.pushNamed(context, RouteNames.loginScreen);
+    // });
   }
   @override
   Widget build(BuildContext context) {

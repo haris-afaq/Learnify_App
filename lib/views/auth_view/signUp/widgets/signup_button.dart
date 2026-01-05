@@ -18,18 +18,20 @@ class SignupButton extends StatelessWidget {
     return BlocListener<SignupBloc, SignupStates>(
       listener: (context, state) {
         if (state.authStates == AuthStates.loading) {
-          CustomSnackbar.show(     context,
+          CustomSnackbar.show(     
+            context,
             text: ("Loading...!"));
         } 
         else if (state.authStates == AuthStates.success) {
           CustomSnackbar.show(
-              context,
+            context,
             text: ("Account created sucessfully...!"));
 
 Navigator.pushNamed(context, RouteNames.loginScreen);
         } 
         else if (state.authStates == AuthStates.error) {
           CustomSnackbar.show(
+            backgroundColor: Colors.red,
             context,
             text: ("Something went wrong while creating account...!")
           );
@@ -42,7 +44,6 @@ Navigator.pushNamed(context, RouteNames.loginScreen);
             title: "Signup",
             onTap: () {
               if (formKey.currentState!.validate()) {
-                // Trigger the signup event
                 context.read<SignupBloc>().add(SignUpButtonClicked());
               }
             },

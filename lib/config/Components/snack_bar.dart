@@ -9,7 +9,7 @@ class CustomSnackbar {
     required String text,
     Color? backgroundColor,
     TextStyle? textStyle,
-    Duration duration = const Duration(seconds: 3),
+    Duration duration = const Duration(seconds: 1),
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
