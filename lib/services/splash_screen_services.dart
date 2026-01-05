@@ -11,17 +11,32 @@ class SplashServices {
   void isLogin(BuildContext context) {
     _authSubscription = _auth.authStateChanges().listen((User? user) {
       if (user != null) {
-        Navigator.pushNamedAndRemoveUntil(
+         Timer(Duration(seconds: 3), (){
+              Navigator.pushNamedAndRemoveUntil(
           context,
           RouteNames.homeScreen,
           (route) => false,
         );
+    });
+
+        // Navigator.pushNamedAndRemoveUntil(
+        //   context,
+        //   RouteNames.homeScreen,
+        //   (route) => false,
+        // );
       } else {
-        Navigator.pushNamedAndRemoveUntil(
+         Timer(Duration(seconds: 3), (){
+       Navigator.pushNamedAndRemoveUntil(
           context,
           RouteNames.loginScreen,
           (route) => false,
         );
+    });
+        // Navigator.pushNamedAndRemoveUntil(
+        //   context,
+        //   RouteNames.loginScreen,
+        //   (route) => false,
+        // );
       }
 
       _authSubscription?.cancel();

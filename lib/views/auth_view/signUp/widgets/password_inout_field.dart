@@ -8,7 +8,7 @@ import 'package:learnify_app/config/constants/colors.dart';
 class PasswordInputField extends StatelessWidget {
   FocusNode passwordFocusNode;
    PasswordInputField({super.key,
-   required this.passwordFocusNode
+   required this.passwordFocusNode, 
    });
 
   @override

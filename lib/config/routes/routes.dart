@@ -20,7 +20,7 @@ static Route<dynamic> generateRoute(RouteSettings settings){
 
       case RouteNames.homeScreen:
       return MaterialPageRoute(builder: (_)=> HomeScreen());
-    
+  
     default: 
       return MaterialPageRoute(builder: (context){
         return Scaffold(

@@ -61,7 +61,7 @@ void dispose() {
              10.height,
              EmailInputField(emailFocusNode: emailFocusNode),
              10.height,
-             PasswordInputField(passwordFocusNode: passwordFocusNode),
+             PasswordInputField(passwordFocusNode: passwordFocusNode,),
              10.height,
              ConfirmPasswordInoutField(confirmPasswordFocusNode: confirmPasswordFocusNode),
              35.height,

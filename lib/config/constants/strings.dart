@@ -13,4 +13,6 @@ class AppStrings{
   static const String newHere = "Create Your Account";
   static const String youWillLoveIt = "You will love it...!";
   static const String loginText = "Login";
+  static const String continueLearning = "Continue your learning journey today";
+  static const String searchHere= "Search here...";
 }

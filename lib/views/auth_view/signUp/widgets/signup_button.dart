@@ -85,5 +85,3 @@ Navigator.pushNamed(context, RouteNames.loginScreen);
 //     }),);
 //   }
 // }
-
-
