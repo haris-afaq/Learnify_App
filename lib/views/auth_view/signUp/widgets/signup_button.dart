@@ -5,6 +5,7 @@ import 'package:learnify_app/bloc/signup_bloc/signup_events.dart';
 import 'package:learnify_app/bloc/signup_bloc/signup_states.dart';
 import 'package:learnify_app/config/Components/main_button.dart';
 import 'package:learnify_app/config/Components/snack_bar.dart';
+import 'package:learnify_app/config/constants/colors.dart';
 import 'package:learnify_app/config/routes/route_names.dart';
 import 'package:learnify_app/utils/auth_states.dart';
 
@@ -18,14 +19,15 @@ class SignupButton extends StatelessWidget {
     return BlocListener<SignupBloc, SignupStates>(
       listener: (context, state) {
         if (state.authStates == AuthStates.loading) {
-          CustomSnackbar.show(     
+          CustomSnackbar.show(  
+            backgroundColor: AppColors.primaryColor   ,
             context,
-            text: ("Loading...!"));
+            text: ("Creating your account please wait...!"));
         } 
         else if (state.authStates == AuthStates.success) {
           CustomSnackbar.show(
             context,
-            text: ("Account created sucessfully...!"));
+            text: ("Account created sucessfully, Now you can login your account...!"));
 
 Navigator.pushNamed(context, RouteNames.loginScreen);
         } 

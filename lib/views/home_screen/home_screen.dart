@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learnify_app/config/Components/text_styles/body_text.dart';
@@ -16,6 +17,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController searchController = TextEditingController();
+
+    String userName = "";
+
+  @override
+  void initState() {
+    super.initState();
+    final user = FirebaseAuth.instance.currentUser;
+    userName = user?.displayName ?? "User";
+  }
+  
   @override
   void dispose() {
     // TODO: implement dispose
@@ -75,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Heading2(title: "Welcome Back, Harix",
+                Heading2(title: "Welcome Back, $userName!",
                 titleColor: AppColors.whiteColor,
                 ),
                 10.height,

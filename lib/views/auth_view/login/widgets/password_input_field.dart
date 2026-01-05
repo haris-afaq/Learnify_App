@@ -5,6 +5,7 @@ import 'package:learnify_app/bloc/login_bloc/login_events.dart';
 import 'package:learnify_app/bloc/login_bloc/login_states.dart';
 import 'package:learnify_app/config/constants/colors.dart';
 
+// ignore: must_be_immutable
 class PasswordInputField extends StatelessWidget {
   FocusNode passwordFocusNode;
    PasswordInputField({super.key,
@@ -17,6 +18,8 @@ class PasswordInputField extends StatelessWidget {
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state){
       return TextFormField(
+        obscureText: true,
+        obscuringCharacter: "*",
               focusNode: passwordFocusNode,
               keyboardType: TextInputType.emailAddress,
               onChanged: (value){
