@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnify_app/config/Components/bottom_navigation_bar.dart';
 import 'package:learnify_app/config/routes/route_names.dart';
 import 'package:learnify_app/views/auth_view/login/login.dart';
 import 'package:learnify_app/views/auth_view/signUp/signup.dart';
@@ -20,6 +21,8 @@ static Route<dynamic> generateRoute(RouteSettings settings){
 
       case RouteNames.homeScreen:
       return MaterialPageRoute(builder: (_)=> HomeScreen());
+      case RouteNames.bottomNavScreen:
+              return MaterialPageRoute(builder: (context)=> const PersistentBottom());
   
     default: 
       return MaterialPageRoute(builder: (context){

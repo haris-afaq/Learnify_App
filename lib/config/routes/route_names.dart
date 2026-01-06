@@ -3,4 +3,5 @@ class RouteNames {
   static const String homeScreen = '/home';
   static const String loginScreen = '/login';
   static const String createAccount = '/create_account';
-}
+    static const String bottomNavScreen = "bottom_nav_screen";
+  }

@@ -12,16 +12,26 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 SplashServices _splashServices = SplashServices();
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _splashServices = SplashServices();
+
+@override
+void initState() {
+  super.initState();
+
+  WidgetsBinding.instance.addPostFrameCallback((_) {
     _splashServices.isLogin(context);
-    // Timer(Duration(seconds: 5), (){
-    //   Navigator.pushNamed(context, RouteNames.loginScreen);
-    // });
-  }
+  });
+}
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   _splashServices = SplashServices();
+  //   _splashServices.isLogin(context);
+  //   // Timer(Duration(seconds: 5), (){
+  //   //   Navigator.pushNamed(context, RouteNames.loginScreen);
+  //   // });
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
