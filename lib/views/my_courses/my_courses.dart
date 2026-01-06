@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnify_app/config/constants/colors.dart';
 
 class MyCoursesScreen extends StatefulWidget {
   const MyCoursesScreen({super.key});
@@ -10,6 +11,8 @@ class MyCoursesScreen extends StatefulWidget {
 class _MyCoursesScreenState extends State<MyCoursesScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: AppColors.appBackgroundColor,
+    );
   }
 }

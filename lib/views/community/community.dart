@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnify_app/config/constants/colors.dart';
 
 class CommunityScreen extends StatefulWidget {
   const CommunityScreen({super.key});
@@ -10,6 +11,8 @@ class CommunityScreen extends StatefulWidget {
 class _CommunityScreenState extends State<CommunityScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: AppColors.appBackgroundColor,
+    );
   }
 }

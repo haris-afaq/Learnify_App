@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learnify_app/config/Components/text_styles/body_text.dart';
 import 'package:learnify_app/config/Components/text_styles/heading2.dart';
+import 'package:learnify_app/config/Components/text_styles/heading3.dart';
 import 'package:learnify_app/config/constants/colors.dart';
 import 'package:learnify_app/config/constants/strings.dart';
 import 'package:learnify_app/config/extenssions/sizedBox.dart';
-import 'package:learnify_app/views/home_screen/widgets/categories_tile.dart';
+import 'package:learnify_app/views/home_screen/widgets/categories_row.dart';
+import 'package:learnify_app/views/home_screen/widgets/continue_learning.dart';
+import 'package:learnify_app/views/home_screen/widgets/courses_tile.dart';
+import 'package:learnify_app/views/home_screen/widgets/top_instructors_tile.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -92,11 +97,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 10.height,
                 Bodytext(text: AppStrings.continueLearning,
                 textColor: AppColors.whiteColor,
-                )
+                ),
+                 20.height,
+                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.whiteColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusGeometry.circular(5)
+                    ),
+                  ),
+                  onPressed: (){}, 
+                  child: Heading3(title: "Resume Learning",
+                  titleColor: AppColors.blueColor,
+                  ))
               ],
             ),
           ),
           ),
+          10.height,
+          CategoriesRow(),
+          10.height,
+          ContinueLearning(),
           10.height,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -105,26 +126,63 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Heading2(title: "Categories", titleColor: AppColors.blackColor,),
-                   TextButton(onPressed: (){}, child: Bodytext(text: "View All",
-                   textColor: AppColors.blueColor,
-                   ))
+                    Heading2(title: "Featured Courses",
+                    titleColor: AppColors.blackColor,
+                    ),
+                    TextButton(
+                      onPressed: (){}, 
+                      child: Bodytext(text: "View All",
+                    textColor: AppColors.blueColor,
+                    ))
                   ],
                 ),
+                5.height,
+                       CoursesTile(imagePath: "assets/images/flutter_thumbnail.png", 
+          courseTitle: "Flutter App Development", 
+          courseDescription: "Learn flutter app development from scratch with hands-on project, with ASIF TAJ"),
+                          10.height,
+                       CoursesTile(imagePath: "assets/images/react_thumbnail.png", 
+          courseTitle: "Complete React course with projects | Chaye aur Code", 
+          courseDescription: "Learn React development from scratch with hands-on project, with Chaye aur Code"),
+                                    10.height,
+                       CoursesTile(imagePath: "assets/images/uiux_thumbnail.png", 
+          courseTitle: "Complete UI/UX Designing Course", 
+          courseDescription: "Master modern design principles and create stunning user interfaces, with HARIX AFAQ"),
+              ],
+            ),
+          
+          ),
+          10.height,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    CategoriesTile( svgPath: "assets/icons/programming.svg"),
-                    CategoriesTile(svgPath: "assets/icons/designing.svg"),
-                    CategoriesTile( svgPath: "assets/icons/business.svg"),
-                    CategoriesTile(svgPath: "assets/icons/languages.svg"),
+                    Heading2(title: "Top Instructors",
+                    titleColor: AppColors.blackColor,
+                    ),
+                  ],
+                ),
+                5.height,
+                Row(
+                  children: [
+                    TopInstructorsTile(
+                      imagePath: "assets/images/asif.png",
+                      instructorName: "Asif taj",
+                       instructorProfession: "Full Stack Developer"),
+                       10.width,
+                       TopInstructorsTile(
+                      imagePath: "assets/images/gfx.png",
+                      instructorName: "Imran Ali Danna",
+                       instructorProfession: "Graphics Designer"),
+
                   ],
                 ),
               ],
             ),
           ),
-          20.height,
-
         ],
       ),
     )),

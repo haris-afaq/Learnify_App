@@ -17,6 +17,7 @@ class SignupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<SignupBloc, SignupStates>(
+      listenWhen: (previous, current) => previous.authStates!= current.authStates,
       listener: (context, state) {
         if (state.authStates == AuthStates.loading) {
           CustomSnackbar.show(  
@@ -55,35 +56,3 @@ Navigator.pushNamed(context, RouteNames.loginScreen);
     );
   }
 }
-
-
-// class SignupButton extends StatelessWidget {
-//   final formKey;
-
-//    SignupButton({super.key,
-//    required this.formKey
-//    });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocListener<SignupBloc, SignupStates>(listener: (context, state){
-//       if(state.authStates == AuthStates.success){
-//         CustomSnackbar("Account created Successfuly...!");
-//       }
-//       else if(state.authStates == AuthStates.loading){
-//         LoadingWidget();
-//       }
-//       else if(state.authStates==AuthStates.error){
-//         CustomSnackbar("Something went wrong while creating account...!");
-//       }
-//     },
-//     child: BlocBuilder(builder: (context, satate){
-//             buildWhen: (previous, current) => false;
-//       return  MainButton(title: "Signup", onTap: (){
-//               if(formKey.currentState!.validate()){
-//                 context.read<SignupBloc>().add(SignUpButtonClicked());
-//               };
-//              });
-//     }),);
-//   }
-// }
