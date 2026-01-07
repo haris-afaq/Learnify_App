@@ -57,7 +57,7 @@ class ContinueLearning extends StatelessWidget {
     const SizedBox(height: 8),
 
     SizedBox(
-      width: 160, 
+      width: 150, 
       child: LinearProgressIndicator(
         backgroundColor: AppColors.appBackgroundColor,
         value: 0.9, 

@@ -13,8 +13,8 @@ class CategoriesTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       svgPath,
-      height: 82,
-      width: 82,
+      height: 77,
+      width: 77,
     );
   }
 }

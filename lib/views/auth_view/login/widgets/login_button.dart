@@ -29,7 +29,13 @@ class LoginButton extends StatelessWidget {
           context, 
           text: state.message.toString()
         );
-        Navigator.pushNamed(context, RouteNames.homeScreen);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          RouteNames.bottomNavScreen,
+          (route) => false,
+        );
+
+        // Navigator.pushNamed(context, RouteNames.homeScreen);
       }
       else if(state.authStates == AuthStates.error){
         CustomSnackbar.show(

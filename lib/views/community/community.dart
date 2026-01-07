@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnify_app/config/Components/app_bar.dart';
 import 'package:learnify_app/config/constants/colors.dart';
 
 class CommunityScreen extends StatefulWidget {
@@ -13,6 +14,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.appBackgroundColor,
+      appBar: MyAppBar(title: "Community"),
     );
   }
 }

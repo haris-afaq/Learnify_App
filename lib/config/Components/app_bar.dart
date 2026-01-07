@@ -5,14 +5,15 @@ import 'package:learnify_app/config/constants/colors.dart';
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
   final String title;
   const MyAppBar({super.key,
-  required this.title
+  required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.whiteColor,
-      title: Heading2(title: title),
+      title: Heading2(title: title,
+      titleColor: AppColors.blackColor,),
       iconTheme: IconThemeData(
         color: AppColors.blackColor
       ),

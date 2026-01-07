@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learnify_app/config/Components/text_styles/body_text.dart';
 import 'package:learnify_app/config/Components/text_styles/heading3.dart';
 import 'package:learnify_app/config/constants/colors.dart';
@@ -26,7 +25,7 @@ class TopInstructorsTile extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          10.height,
+                         Spacer(),
                           ClipRRect(
                             borderRadius: BorderRadiusGeometry.circular(50),
                             child: Image(
@@ -41,7 +40,8 @@ class TopInstructorsTile extends StatelessWidget {
                           3.height,
                           Bodytext(text: instructorProfession,
                           textColor: AppColors.blackColor,
-                          )
+                          ),
+                          Spacer()
                         ],
                       ),
                     );
