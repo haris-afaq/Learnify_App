@@ -20,16 +20,22 @@ class MyCoursesScreen extends StatefulWidget {
 class _MyCoursesScreenState extends State<MyCoursesScreen> {
   @override
   Widget build(BuildContext context) {
+
+
     //Default Tab Controller 
     return DefaultTabController(
       length: MyCoursesScreen.myCoursesTab.length,
+
+
       child: Scaffold(
         backgroundColor: AppColors.appBackgroundColor,
         appBar: MyAppBar(title: "My Courses"),
         body: Padding(
-              padding: const EdgeInsets.only(top: 24, left: 15, right: 15),
+          padding: const EdgeInsets.only(top: 24, left: 15, right: 15),
           child: Column(
             children: [
+
+
               //Tab Bar
               const TabBar(
                 tabs: MyCoursesScreen.myCoursesTab,
