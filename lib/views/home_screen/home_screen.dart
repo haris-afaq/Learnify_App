@@ -12,6 +12,8 @@ import 'package:learnify_app/views/home_screen/widgets/categories_row.dart';
 import 'package:learnify_app/views/home_screen/widgets/continue_learning.dart';
 import 'package:learnify_app/views/home_screen/widgets/courses_tile.dart';
 import 'package:learnify_app/views/home_screen/widgets/top_instructors.dart';
+import 'package:learnify_app/views/profile/profile_screen.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -22,7 +24,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  TextEditingController searchController = TextEditingController();
+ // TextEditingController searchController = TextEditingController();
 
     String userName = "";
 
@@ -33,12 +35,12 @@ class _HomeScreenState extends State<HomeScreen> {
     userName = user?.displayName ?? "User";
   }
   
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    searchController.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   // TODO: implement dispose
+  //   super.dispose();
+  //   searchController.dispose();
+  // }
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -67,11 +69,26 @@ class _HomeScreenState extends State<HomeScreen> {
          ),
        ),
        actions: [
-        IconButton(onPressed: (){}, icon: SizedBox(
-          height: 25,
-          width: 25,
-          child: SvgPicture.asset("assets/icons/notifications.svg"))),
-          IconButton(onPressed: (){}, icon: SizedBox(
+        IconButton(
+  onPressed: () {
+    debugPrint("Botifications Button Pressed......!");
+   
+  },
+  icon: SvgPicture.asset(
+    "assets/icons/notifications.svg",
+    height: 25,
+    width: 25,
+  ),
+),
+          IconButton(onPressed: (){
+             debugPrint("Navigating to Profile Screen......!");
+    PersistentNavBarNavigator.pushNewScreen(
+      context,
+      screen: ProfileScreen(),
+      withNavBar: false, 
+      pageTransitionAnimation: PageTransitionAnimation.cupertino,
+    );
+          }, icon: SizedBox(
           height: 25,
           width: 25,
           child: SvgPicture.asset("assets/icons/profile_icon.svg"))),

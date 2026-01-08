@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:learnify_app/config/Components/bottom_navigation_bar.dart';
-import 'package:learnify_app/config/routes/route_names.dart';
-import 'package:learnify_app/views/auth_view/login/login.dart';
-import 'package:learnify_app/views/auth_view/signUp/signup.dart';
-import 'package:learnify_app/views/home_screen/home_screen.dart';
-import 'package:learnify_app/views/splashScreen/splash_screen.dart';
-
+import 'package:learnify_app/config/routes/widget.dart';
 
 class Routes{
 static Route<dynamic> generateRoute(RouteSettings settings){
@@ -21,8 +14,12 @@ static Route<dynamic> generateRoute(RouteSettings settings){
 
       case RouteNames.homeScreen:
       return MaterialPageRoute(builder: (_)=> HomeScreen());
+
+      case RouteNames.profileScreen:
+      return MaterialPageRoute(builder: (_)=> ProfileScreen());
+
       case RouteNames.bottomNavScreen:
-              return MaterialPageRoute(builder: (context)=> const PersistentBottom());
+      return MaterialPageRoute(builder: (context)=> const PersistentBottom());
   
     default: 
       return MaterialPageRoute(builder: (context){
