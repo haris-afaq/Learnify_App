@@ -17,10 +17,21 @@ class YoutubePlaylistModel with _$YoutubePlaylistModel {
 class YoutubeItem with _$YoutubeItem {
   const factory YoutubeItem({
     required YoutubeSnippet snippet,
+    YoutubeResourceId? resourceId, 
   }) = _YoutubeItem;
 
   factory YoutubeItem.fromJson(Map<String, dynamic> json) =>
       _$YoutubeItemFromJson(json);
+}
+
+@freezed
+class YoutubeResourceId with _$YoutubeResourceId {
+  const factory YoutubeResourceId({
+    required String videoId,
+  }) = _YoutubeResourceId;
+
+  factory YoutubeResourceId.fromJson(Map<String, dynamic> json) =>
+      _$YoutubeResourceIdFromJson(json);
 }
 
 @freezed
@@ -54,3 +65,4 @@ class YoutubeThumbnail with _$YoutubeThumbnail {
   factory YoutubeThumbnail.fromJson(Map<String, dynamic> json) =>
       _$YoutubeThumbnailFromJson(json);
 }
+

@@ -12,6 +12,7 @@ class Heading3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return Text(title,
+     maxLines: 2,
     style: TextStyle(fontSize: 15,
     color: titleColor??AppColors.primaryColor,
     fontWeight: FontWeight.w500,

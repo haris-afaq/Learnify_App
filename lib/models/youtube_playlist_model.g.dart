@@ -21,10 +21,26 @@ Map<String, dynamic> _$$YoutubePlaylistModelImplToJson(
 _$YoutubeItemImpl _$$YoutubeItemImplFromJson(Map<String, dynamic> json) =>
     _$YoutubeItemImpl(
       snippet: YoutubeSnippet.fromJson(json['snippet'] as Map<String, dynamic>),
+      resourceId: json['resourceId'] == null
+          ? null
+          : YoutubeResourceId.fromJson(
+              json['resourceId'] as Map<String, dynamic>,
+            ),
     );
 
 Map<String, dynamic> _$$YoutubeItemImplToJson(_$YoutubeItemImpl instance) =>
-    <String, dynamic>{'snippet': instance.snippet};
+    <String, dynamic>{
+      'snippet': instance.snippet,
+      'resourceId': instance.resourceId,
+    };
+
+_$YoutubeResourceIdImpl _$$YoutubeResourceIdImplFromJson(
+  Map<String, dynamic> json,
+) => _$YoutubeResourceIdImpl(videoId: json['videoId'] as String);
+
+Map<String, dynamic> _$$YoutubeResourceIdImplToJson(
+  _$YoutubeResourceIdImpl instance,
+) => <String, dynamic>{'videoId': instance.videoId};
 
 _$YoutubeSnippetImpl _$$YoutubeSnippetImplFromJson(Map<String, dynamic> json) =>
     _$YoutubeSnippetImpl(

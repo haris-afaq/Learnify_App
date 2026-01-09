@@ -189,6 +189,7 @@ YoutubeItem _$YoutubeItemFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$YoutubeItem {
   YoutubeSnippet get snippet => throw _privateConstructorUsedError;
+  YoutubeResourceId? get resourceId => throw _privateConstructorUsedError;
 
   /// Serializes this YoutubeItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -207,9 +208,10 @@ abstract class $YoutubeItemCopyWith<$Res> {
     $Res Function(YoutubeItem) then,
   ) = _$YoutubeItemCopyWithImpl<$Res, YoutubeItem>;
   @useResult
-  $Res call({YoutubeSnippet snippet});
+  $Res call({YoutubeSnippet snippet, YoutubeResourceId? resourceId});
 
   $YoutubeSnippetCopyWith<$Res> get snippet;
+  $YoutubeResourceIdCopyWith<$Res>? get resourceId;
 }
 
 /// @nodoc
@@ -226,13 +228,17 @@ class _$YoutubeItemCopyWithImpl<$Res, $Val extends YoutubeItem>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? snippet = null}) {
+  $Res call({Object? snippet = null, Object? resourceId = freezed}) {
     return _then(
       _value.copyWith(
             snippet: null == snippet
                 ? _value.snippet
                 : snippet // ignore: cast_nullable_to_non_nullable
                       as YoutubeSnippet,
+            resourceId: freezed == resourceId
+                ? _value.resourceId
+                : resourceId // ignore: cast_nullable_to_non_nullable
+                      as YoutubeResourceId?,
           )
           as $Val,
     );
@@ -247,6 +253,20 @@ class _$YoutubeItemCopyWithImpl<$Res, $Val extends YoutubeItem>
       return _then(_value.copyWith(snippet: value) as $Val);
     });
   }
+
+  /// Create a copy of YoutubeItem
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $YoutubeResourceIdCopyWith<$Res>? get resourceId {
+    if (_value.resourceId == null) {
+      return null;
+    }
+
+    return $YoutubeResourceIdCopyWith<$Res>(_value.resourceId!, (value) {
+      return _then(_value.copyWith(resourceId: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -258,10 +278,12 @@ abstract class _$$YoutubeItemImplCopyWith<$Res>
   ) = __$$YoutubeItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({YoutubeSnippet snippet});
+  $Res call({YoutubeSnippet snippet, YoutubeResourceId? resourceId});
 
   @override
   $YoutubeSnippetCopyWith<$Res> get snippet;
+  @override
+  $YoutubeResourceIdCopyWith<$Res>? get resourceId;
 }
 
 /// @nodoc
@@ -277,13 +299,17 @@ class __$$YoutubeItemImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? snippet = null}) {
+  $Res call({Object? snippet = null, Object? resourceId = freezed}) {
     return _then(
       _$YoutubeItemImpl(
         snippet: null == snippet
             ? _value.snippet
             : snippet // ignore: cast_nullable_to_non_nullable
                   as YoutubeSnippet,
+        resourceId: freezed == resourceId
+            ? _value.resourceId
+            : resourceId // ignore: cast_nullable_to_non_nullable
+                  as YoutubeResourceId?,
       ),
     );
   }
@@ -292,17 +318,19 @@ class __$$YoutubeItemImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$YoutubeItemImpl implements _YoutubeItem {
-  const _$YoutubeItemImpl({required this.snippet});
+  const _$YoutubeItemImpl({required this.snippet, this.resourceId});
 
   factory _$YoutubeItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$YoutubeItemImplFromJson(json);
 
   @override
   final YoutubeSnippet snippet;
+  @override
+  final YoutubeResourceId? resourceId;
 
   @override
   String toString() {
-    return 'YoutubeItem(snippet: $snippet)';
+    return 'YoutubeItem(snippet: $snippet, resourceId: $resourceId)';
   }
 
   @override
@@ -310,12 +338,14 @@ class _$YoutubeItemImpl implements _YoutubeItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$YoutubeItemImpl &&
-            (identical(other.snippet, snippet) || other.snippet == snippet));
+            (identical(other.snippet, snippet) || other.snippet == snippet) &&
+            (identical(other.resourceId, resourceId) ||
+                other.resourceId == resourceId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, snippet);
+  int get hashCode => Object.hash(runtimeType, snippet, resourceId);
 
   /// Create a copy of YoutubeItem
   /// with the given fields replaced by the non-null parameter values.
@@ -332,20 +362,179 @@ class _$YoutubeItemImpl implements _YoutubeItem {
 }
 
 abstract class _YoutubeItem implements YoutubeItem {
-  const factory _YoutubeItem({required final YoutubeSnippet snippet}) =
-      _$YoutubeItemImpl;
+  const factory _YoutubeItem({
+    required final YoutubeSnippet snippet,
+    final YoutubeResourceId? resourceId,
+  }) = _$YoutubeItemImpl;
 
   factory _YoutubeItem.fromJson(Map<String, dynamic> json) =
       _$YoutubeItemImpl.fromJson;
 
   @override
   YoutubeSnippet get snippet;
+  @override
+  YoutubeResourceId? get resourceId;
 
   /// Create a copy of YoutubeItem
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$YoutubeItemImplCopyWith<_$YoutubeItemImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+YoutubeResourceId _$YoutubeResourceIdFromJson(Map<String, dynamic> json) {
+  return _YoutubeResourceId.fromJson(json);
+}
+
+/// @nodoc
+mixin _$YoutubeResourceId {
+  String get videoId => throw _privateConstructorUsedError;
+
+  /// Serializes this YoutubeResourceId to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of YoutubeResourceId
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $YoutubeResourceIdCopyWith<YoutubeResourceId> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $YoutubeResourceIdCopyWith<$Res> {
+  factory $YoutubeResourceIdCopyWith(
+    YoutubeResourceId value,
+    $Res Function(YoutubeResourceId) then,
+  ) = _$YoutubeResourceIdCopyWithImpl<$Res, YoutubeResourceId>;
+  @useResult
+  $Res call({String videoId});
+}
+
+/// @nodoc
+class _$YoutubeResourceIdCopyWithImpl<$Res, $Val extends YoutubeResourceId>
+    implements $YoutubeResourceIdCopyWith<$Res> {
+  _$YoutubeResourceIdCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of YoutubeResourceId
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? videoId = null}) {
+    return _then(
+      _value.copyWith(
+            videoId: null == videoId
+                ? _value.videoId
+                : videoId // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$YoutubeResourceIdImplCopyWith<$Res>
+    implements $YoutubeResourceIdCopyWith<$Res> {
+  factory _$$YoutubeResourceIdImplCopyWith(
+    _$YoutubeResourceIdImpl value,
+    $Res Function(_$YoutubeResourceIdImpl) then,
+  ) = __$$YoutubeResourceIdImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String videoId});
+}
+
+/// @nodoc
+class __$$YoutubeResourceIdImplCopyWithImpl<$Res>
+    extends _$YoutubeResourceIdCopyWithImpl<$Res, _$YoutubeResourceIdImpl>
+    implements _$$YoutubeResourceIdImplCopyWith<$Res> {
+  __$$YoutubeResourceIdImplCopyWithImpl(
+    _$YoutubeResourceIdImpl _value,
+    $Res Function(_$YoutubeResourceIdImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of YoutubeResourceId
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? videoId = null}) {
+    return _then(
+      _$YoutubeResourceIdImpl(
+        videoId: null == videoId
+            ? _value.videoId
+            : videoId // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$YoutubeResourceIdImpl implements _YoutubeResourceId {
+  const _$YoutubeResourceIdImpl({required this.videoId});
+
+  factory _$YoutubeResourceIdImpl.fromJson(Map<String, dynamic> json) =>
+      _$$YoutubeResourceIdImplFromJson(json);
+
+  @override
+  final String videoId;
+
+  @override
+  String toString() {
+    return 'YoutubeResourceId(videoId: $videoId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$YoutubeResourceIdImpl &&
+            (identical(other.videoId, videoId) || other.videoId == videoId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, videoId);
+
+  /// Create a copy of YoutubeResourceId
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$YoutubeResourceIdImplCopyWith<_$YoutubeResourceIdImpl> get copyWith =>
+      __$$YoutubeResourceIdImplCopyWithImpl<_$YoutubeResourceIdImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$YoutubeResourceIdImplToJson(this);
+  }
+}
+
+abstract class _YoutubeResourceId implements YoutubeResourceId {
+  const factory _YoutubeResourceId({required final String videoId}) =
+      _$YoutubeResourceIdImpl;
+
+  factory _YoutubeResourceId.fromJson(Map<String, dynamic> json) =
+      _$YoutubeResourceIdImpl.fromJson;
+
+  @override
+  String get videoId;
+
+  /// Create a copy of YoutubeResourceId
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$YoutubeResourceIdImplCopyWith<_$YoutubeResourceIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -20,6 +20,17 @@ static Route<dynamic> generateRoute(RouteSettings settings){
 
       case RouteNames.bottomNavScreen:
       return MaterialPageRoute(builder: (context)=> const PersistentBottom());
+
+case RouteNames.playlistScreen:
+  final args = settings.arguments as Map<String, dynamic>;
+  return MaterialPageRoute(
+    builder: (_) => PlaylistScreen(
+      playlistId: args['playlistId'],
+      playlistTitle: args['playlistTitle'],
+      channelTitle: args['channelTitle'],
+    ),
+  );
+
   
     default: 
       return MaterialPageRoute(builder: (context){

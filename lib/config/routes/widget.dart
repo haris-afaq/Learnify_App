@@ -6,3 +6,4 @@ export 'package:learnify_app/views/auth_view/signUp/signup.dart';
 export 'package:learnify_app/views/home_screen/home_screen.dart';
 export 'package:learnify_app/views/profile/profile_screen.dart';
 export 'package:learnify_app/views/splashScreen/splash_screen.dart';
+export 'package:learnify_app/views/playlist/playlist.dart';

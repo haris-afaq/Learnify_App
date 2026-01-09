@@ -1,3 +1,5 @@
+
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -59,26 +61,54 @@ class NetworkServiceApi implements BaseApiServices{
   Future<dynamic> deleteAPI(String url) async{
   
   }
+dynamic returnResponse(http.Response response) {
+  switch (response.statusCode) {
+    case 200:
+    case 400:
+      return jsonDecode(response.body);
 
+    case 401:
+      throw UnAuthorizedException(
+          "Unauthorized error: ${response.statusCode}");
 
+    case 403:
+      throw FetchDataException("Forbidden / API key issue");
 
-  dynamic returnResponse(http.Response response){
-    switch(response.statusCode){
+    case 404:
+      throw FetchDataException("Resource not found");
 
-      case 200:
-      dynamic jsonResponse = jsonDecode(response.body);
-      return jsonResponse;
+    case 429:
+      throw FetchDataException("YouTube API quota exceeded");
 
-      case 400:
-      dynamic jsonResponse = jsonDecode(response.body);
-      return jsonResponse;
-      
-      case 401:
-      throw UnAuthorizedException("Unauthorized error: $response.statusCode.toString() ");
+    case 500:
+      throw FetchDataException(
+          "Server error: ${response.statusCode}");
 
-      case 500:
-      throw FetchDataException("Error while fetching data: $response.statusCode.toString() ");
-    }
+    default:
+      throw FetchDataException(
+          "Unexpected error: ${response.statusCode}");
   }
+}
+
+
+
+  // dynamic returnResponse(http.Response response){
+  //   switch(response.statusCode){
+
+  //     case 200:
+  //     dynamic jsonResponse = jsonDecode(response.body);
+  //     return jsonResponse;
+
+  //     case 400:
+  //     dynamic jsonResponse = jsonDecode(response.body);
+  //     return jsonResponse;
+      
+  //     case 401:
+  //     throw UnAuthorizedException("Unauthorized error: $response.statusCode.toString() ");
+
+  //     case 500:
+  //     throw FetchDataException("Error while fetching data: $response.statusCode.toString() ");
+  //   }
+  // }
 
 }

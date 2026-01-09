@@ -12,8 +12,11 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.whiteColor,
-      title: Heading2(title: title,
-      titleColor: AppColors.blackColor,),
+      title: SizedBox(
+        width: 250,
+        child: Heading2(title: title,
+        titleColor: AppColors.blackColor,),
+      ),
       iconTheme: IconThemeData(
         color: AppColors.blackColor
       ),
